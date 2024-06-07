@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  lc-project-db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: 'lc-project-db'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
