@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -38,7 +38,7 @@ model Category {
 model Post {
   id               Int                @id @default(autoincrement())
   title            String
-  content          String             @db.LongText
+  content          String             @db.Text
   mainImageUrl     String             @map("main_image_url")
   publishedDate    DateTime           @default(now()) @map("published_date")
   views            Int                @default(0)
